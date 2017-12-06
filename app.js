@@ -174,10 +174,76 @@ const spells = [{
 
 // MAP
 
+  // Clean up the data so it's more readable
+  // Let's map through the array, and pull out each spell's name, desc, and duration
 
+function cleanUpSpells(spells) {
+  var cleanSpells = spells.map(function(spell) {
+    // Business logic
+    var cleanSpell = {
+      name: spell.name,
+      description: spell.desc,
+      duration: spell.duration
+    }
+    return cleanSpell
+  })
+  return cleanSpells
+}
+
+// console.log(cleanUpSpells(spells))
+
+// Write a function called cleanSpells
+// Takes an array of spells as an input
+// Returns a new array of spells that only includes:
+  // Spell name
+  // Spell material
+  // Name of the first class that can use the spell
+
+function cleanSpells(spells) {
+    var cleanSpells = spells.map(function(spell) {
+        var cleanSpell = {
+            name: spell.name,
+            material: spell.material,
+            class: spell.classes[0].name
+        }
+        return cleanSpell
+    })
+    return cleanSpells
+}
+
+// console.log(cleanSpells(spells))
 
 // FILTER
 
+function filterSpells(spells) {
+  var filteredSpells = spells.filter(function(spell) {
+    // Business logic
+    if (spell.material != undefined) {
+      return spell;
+    }
+  })
 
+  return filteredSpells;
+}
+
+// console.log(filterSpells(spells));
+
+// Write a function called filterSpellsLevel that returns a new array of spells
+  // Spell's level is no higher than 1
+  // Keep spells that are level 1 or below
+  // Remove spells that are level 2 or above
+
+
+function filterSpellsLevel(spells) {
+  var lowLevelSpells = spells.filter(function (spell, index, array) {
+    // spell = array[index]
+    if(spell.level <= 1) {
+      return spell;
+    }
+  })
+  return lowLevelSpells;
+}
+
+// console.log(filterSpellsLevel(spells));
 
 // REDUCE
