@@ -247,3 +247,30 @@ function filterSpellsLevel(spells) {
 // console.log(filterSpellsLevel(spells));
 
 // REDUCE
+
+function sumSpellLevels(spells) {
+  var levels = spells.reduce(function(accumulator, spell) {
+    accumulator += spell.level
+    return accumulator
+  }, 0)
+  return levels
+}
+
+// console.log(sumSpellLevels(spells));
+
+
+// Write a function called reduceSpellNames that returns an array of the spells' names
+  // Function takes an array of spell objects as an input
+  // Function returns an array of spell names as an output
+
+
+function reduceSpellNames (spells) {
+  return spells.reduce(reduceSpells, [])
+}
+
+function reduceSpells(accumulator, currentValue) {
+  accumulator.push(currentValue.name)
+  return accumulator
+}
+
+console.log(reduceSpellNames(spells))
